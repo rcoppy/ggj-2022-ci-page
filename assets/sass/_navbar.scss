@@ -44,7 +44,7 @@
     }
 
     a {
-        filter: drop-shadow(0 0 4px $middle-blue-purple);
+        filter: drop-shadow(0 0 4px $antique-brass);
         font-weight: 600; 
         font-size: 1.5rem;
 
@@ -71,7 +71,7 @@
         border-left: $border_bottom_width solid $header_color;
         border-right: $border_bottom_width solid $header_color;
 
-        filter: drop-shadow(0 0 4px lighten($middle-blue-purple, 15%));
+        filter: drop-shadow(0 0 4px lighten($antique-brass, 15%));
 
         a {
             color: $header_color;
