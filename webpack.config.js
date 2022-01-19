@@ -10,7 +10,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = (env, options) => {
     return {
         devServer: {
-            contentBase: path.join(__dirname, 'dist'),
+            contentBase: path.join(__dirname, 'docs'),
             compress: true,
             host: '0.0.0.0',
             port: 9000,
@@ -22,7 +22,7 @@ module.exports = (env, options) => {
         },
         output: {
             filename: '[name].js',
-            path: path.resolve(__dirname, 'dist'),
+            path: path.resolve(__dirname, 'docs'),
         },
         // uglifyjs
         optimization: {
