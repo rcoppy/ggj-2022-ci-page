@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/rcoppy/pug-portfolio#readme",
   "dependencies": {
+    "@octokit/core": "^3.5.1",
     "bootstrap": "^4.5.2",
+    "fs": "^0.0.1-security",
     "jquery": "^3.5.1",
     "jstransformer-markdown-it": "^2.1.0",
     "markdown-it": "^11.0.0",
