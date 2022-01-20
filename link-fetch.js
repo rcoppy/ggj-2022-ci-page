@@ -19,28 +19,40 @@ const main = async function() {
     }); 
 
     const windows = response.artifacts
-                            .find(artifact => artifact.name === 'build_StandaloneWindows64')
-                            .archive_download_url; 
+                            .find(artifact => artifact.name === 'build_StandaloneWindows64');
+                           
+    let windowsURL = null;
+
+    if (windows) {
+        windowsURL = windows.archive_download_url;
+    }                         
 
     const macosx = response.artifacts
-                            .find(artifact => artifact.name === 'build_StandaloneOSX')
-                            .archive_download_url; 
+                            .find(artifact => artifact.name === 'build_StandaloneOSX');
+    
+    let macosxURL = null;
+    
+    if (macosx) {
+        macosxURL = macosx.archive_download_url; 
+    }
 
     const base_path = './src/markdown';
 
-    fs.rm(base_path + 'macosx.md');
-    fs.rm(base_path + 'windows.md');
+    if (windowsURL) {
+        fs.rm(base_path + 'windows.md');
+        fs.writeFile(base_path + 'windows.md', windowsURL, function (err) {
+            if (err) throw err;
+            console.log('File is created successfully.');
+        });
+    }
 
-    // writeFile function with filename, content and callback function
-    fs.writeFile(base_path + 'macosx.md', macosx, function (err) {
-        if (err) throw err;
-        console.log('File is created successfully.');
-    });
-
-    fs.writeFile(base_path + 'windows.md', windows, function (err) {
-        if (err) throw err;
-        console.log('File is created successfully.');
-    });
+    if (macosxURL) {
+        fs.rm(base_path + 'macosx.md');
+        fs.writeFile(base_path + 'macosx.md', macosxURL, function (err) {
+            if (err) throw err;
+            console.log('File is created successfully.');
+        });
+    }
 }
 
 main();
