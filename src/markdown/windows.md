@@ -1,1 +1,1 @@
-https://rcoppy.github.io/ggj-2022-game/
+https://api.github.com/repos/rcoppy/ggj-2022-game/actions/artifacts/146346324/zip
